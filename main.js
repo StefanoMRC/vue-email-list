@@ -3,15 +3,19 @@ var app= new Vue(
         el: "#root",
         data:{
             array:[],
-            prova : null
+            
         },
+
         created(){
+            let array2=[]
             for (let i = 0; i < 10; i++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((res)=>{
                     console.log(res.data.response)
-                    this.prova=res.data.response
-                    this.array.push(this.prova)
+                    array2.push(res.data.response)
+                    if (i==9) {
+                        this.array=array2
+                    }
                 });  
                 
             }

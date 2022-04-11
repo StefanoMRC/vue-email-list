@@ -12,10 +12,7 @@ var app= new Vue(
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((res)=>{
                     console.log(res.data.response)
-                    array2.push(res.data.response)
-                    if (i==9) {
-                        this.array=array2
-                    }
+                    this.array.push(res.data.response)
                 });  
                 
             }
